@@ -59,39 +59,42 @@ foreach($fields as $k => $v){
             }
             else{
             ?>
-            <form id="regform" method="post" action="doregister.php">
-                <div>
-                    <label for="fname">First Name:</label>
-                    <input id="fname" type="text" name="fname" value="<?php echo $fields['fname']; ?>">
-                </div>
-                <div>
-                    <label for="lname">Last Name:</label>
-                    <input id="lname" type="text" name="lname" value="<?php echo $fields['lname']; ?>">
-                </div>
-                <div>
-                    <label for="email">E-Mail:</label>
-                    <input id="email" type="email" name="email" value="<?php echo $fields['email']; ?>">
-                </div>
-                <div>
-                    <label for="user">User Name:</label>
-                    <input id="user" type="text" name="uname" value="<?php echo $fields['uname']; ?>">
-                </div>
-                <div>
-                    <label for="pass">Password:</label>
-                    <input id="pass" type="password" name="pass">
-                </div>
-                <div>
-                    <label for="pass">Confirm Password:</label>
-                    <input oninput="confirmPassHandler()" id="confirm" type="password">
-                    <div id="passErr" class="err"></div>
-                </div>
-                <div>
-                    <input type="submit">
-                </div>
-                <div id="login-link">
-                    Already have an accout? <a href="login.php">Log in</a>
-                </div>
-            </form>
+            <div class="centered">
+                <form id="regform" method="post" action="doregister.php">
+                    <div>
+                        <label for="fname">First Name:</label>
+                        <input id="fname" type="text" name="fname" value="<?php echo $fields['fname']; ?>">
+                    </div>
+                    <div>
+                        <label for="lname">Last Name:</label>
+                        <input id="lname" type="text" name="lname" value="<?php echo $fields['lname']; ?>">
+                    </div>
+                    <div>
+                        <label for="email">E-Mail:</label>
+                        <input id="email" type="email" name="email" value="<?php echo $fields['email']; ?>">
+                    </div>
+                    <div>
+                        <label for="user">User Name:</label>
+                        <input id="user" type="text" name="uname" value="<?php echo $fields['uname']; ?>">
+                    </div>
+                    <div>
+                        <label for="pass">Password:</label>
+                        <input id="pass" type="password" name="pass">
+                    </div>
+                    <div>
+                        <label for="pass">Confirm Password:</label>
+                        <input oninput="confirmPassHandler()" id="confirm" type="password">
+                        <div id="passErr" class="err"></div>
+                    </div>
+                    <div>
+                        <input type="submit">
+                    </div>
+                    <div class="centered">
+                        Already have an accout? <a href="login.php">Log in</a>
+                    </div>
+                </form>
+            </div>
+
 
         </div>
         <?php

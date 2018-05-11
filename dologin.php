@@ -1,10 +1,5 @@
 <?php
-function getFromPost($param){
-    if(isset($_POST[$param]) && !empty($_POST[$param]))
-        return htmlspecialchars($_POST[$param]);
-    else
-        return "";
-}
+require("utils.php");
 $fields = array("uname" => "", "pass" => "");
 $filledOut = true;
 foreach($fields as $k => $v){

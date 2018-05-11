@@ -1,19 +1,9 @@
 <?php
+
 //Setup php
+require("utils.php");
 $filledOut = true;
 
-function getFromGet($param){
-    if(isset($_GET[$param]) && !empty($_GET[$param]))
-        return htmlspecialchars($_GET[$param]);
-    else
-        return "";
-}
-function getFromPost($param){
-    if(isset($_POST[$param]) && !empty($_POST[$param]))
-        return htmlspecialchars($_POST[$param]);
-    else
-        return "";
-}
 $fields = array("fname" => "", "lname" => "", "email" => "", "uname" => "", "pass" => "");
 
 foreach($fields as $k => $v){

@@ -1,4 +1,5 @@
 <?php
+require("utils.php");
 session_start();
 if(isset($_SESSION['uid'])){
     header("Location: /home.php");
@@ -16,24 +17,27 @@ if(isset($_SESSION['uid'])){
         </div>
 
         <div id="container">
-            <form id="logform" action="dologin.php" method="post">
-                <div>
-                    <label for="uname">User Name: </label>
-                    <input type="text" name="uname" id="uname">
-                </div>
-                <div>
-                    <label for="pass">Password:</label>
-                    <input type="password" name="pass" id="pass">
-                </div>
-                <div>
-                    <div class="err">
-                        <?php if(isset($_GET['err']) && $_GET['err'] = 'p') echo "Incorrect username or password";?>
+            <div class="centered">
+                <form id="logform" action="dologin.php" method="post">
+                    <div>
+                        <label for="uname">User Name: </label>
+                        <input type="text" name="uname" id="uname">
                     </div>
-                    <input type="submit">
-                </div>
-            </form>
-            <div>
-                Don't have an account? <a href="register.php">Make an account</a>
+                    <div>
+                        <label for="pass">Password:</label>
+                        <input type="password" name="pass" id="pass">
+                    </div>
+                    <div>
+                        <div class="err">
+                            <?php if(getFromGet('err') == 'p') echo "Incorrect username or password";?>
+                        </div>
+                        <input type="submit">
+                    </div>
+                </form>
+            </div>
+
+            <div class="centered">
+                Don't have an account? <a href="register.php"> Make an account</a>
             </div>
         </div>
 

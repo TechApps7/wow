@@ -1,3 +1,6 @@
+<?php
+header("Location: home.php");
+?>
 <HTML>
     <head>
         <title>MyPHP</title>
