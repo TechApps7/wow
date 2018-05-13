@@ -1,0 +1,6 @@
+#errbox{
+    border-style: solid;
+    border-color: cadetblue;
+    display: flex;
+    justify-content: center;
+}

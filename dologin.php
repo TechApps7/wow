@@ -21,6 +21,7 @@ if($filledOut){
         if(isset($result['Password']) && password_verify($fields['pass'], $result['Password'])){
             session_start();
             $_SESSION['uid'] = $result['UserId'];
+            $_SESSION['uname'] = htmlspecialchars($fields['uname']);
             header("Location: /home.php");
         }
         else{

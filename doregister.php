@@ -19,7 +19,7 @@ if($filledOut){
     }
     else{
         $sql ="
-    INSERT INTO user (UserName, FirstName, LastName, Password, Email) 
+    INSERT IGNORE INTO user (UserName, FirstName, LastName, Password, Email) 
     VALUES(?, ?, ?, ?, ?);
     ";
         
@@ -28,10 +28,25 @@ if($filledOut){
         $stmt->execute();
 
         if($db->errno){
-            echo "<h1>Error putting data into table</h1>";
+            $err = $db->error;
+            header("Location: /err.php?msg=${err}");
         }
         else{
-            header("Location: /confirmation.php");
+            $sql = "
+            INSERT INTO follow (Follower, Followed)
+            SELECT UserId, UserId FROM user WHERE UserName=?;
+            ";
+            $stmt = $db->prepare($sql);
+            $stmt->bind_param("s", $fields['uname']);
+            $stmt->execute();
+            if($db->errno){
+                $err = $db->error;
+                header("Location: /err.php?msg=${err}");
+            }
+            else{
+                header("Location: /confirmation.php");
+            }
+           
         }
     }
 
