@@ -19,17 +19,21 @@ if($filledOut){
     }
     else{
         $sql ="
-    INSERT IGNORE INTO user (UserName, FirstName, LastName, Password, Email) 
+    INSERT INTO user (UserName, FirstName, LastName, Password, Email) 
     VALUES(?, ?, ?, ?, ?);
     ";
         
         $stmt = $db->prepare($sql);
         $stmt->bind_param("sssss", $fields['uname'], $fields['fname'], $fields['lname'], $epword, $fields['email']);
         $stmt->execute();
-
-        if($db->errno){
+        
+        if($db->errno && $db->errno != 1062){
             $err = $db->error;
             header("Location: /err.php?msg=${err}");
+        }
+        else if($db->errno == 1062){
+            $err = htmlspecialchars("Username Taken");
+            header("Location: /register.php?err=$err");
         }
         else{
             $sql = "
@@ -52,6 +56,7 @@ if($filledOut){
 
 }
 else{
-    header("Location: /register.php");
+    $err = htmlspecialchars("Please fill out the form");
+    header("Location: /register.php?err=$err");
 }
 ?>

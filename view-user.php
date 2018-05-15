@@ -4,36 +4,31 @@ require("utils.php");
 session_start();
 $name = getFromSession('uname');
 
-if($name){
-    $uid = getFromSession('uid');
-    $offset = getFromGet('offset');
-    $offset = $offset ? $offset : '0'; //Should work. Look here if things break :/
-    $uname = getFromGet("uname");
-    
-    $db = new mysqli("localhost", "mason", "lKJ87s75GoqoPrNd", "west");
-    $sql = "SELECT w.WisdomText AS Text, u.UserName AS Name 
+$offset = getFromGet('offset');
+$offset = $offset ? $offset : '0'; //Should work. Look here if things break :/
+$uname = getFromGet("uname");
+
+$db = new mysqli("localhost", "mason", "lKJ87s75GoqoPrNd", "west");
+$sql = "SELECT w.WisdomText AS Text, u.UserName AS Name 
     FROM user AS u, wisdom AS w
     WHERE u.UserName=? AND w.UserId=u.UserId
     ORDER BY w.WisdomId DESC LIMIT ?,20";
-    $stmt = $db->prepare($sql);
-    $stmt->bind_param("si", $uname, $offset);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    
-    if(!$result){
-        $err = $db->error;
-        header("Location: /err.php?msg=$err");
-    }
-    
-    $feed = array();
-    while($tmp = $result->fetch_assoc()){
-        $feed[] = $tmp;
-    }
-    
+$stmt = $db->prepare($sql);
+$stmt->bind_param("si", $uname, $offset);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if(!$result){
+    $err = $db->error;
+    header("Location: /err.php?msg=$err");
 }
-else{
+
+$feed = array();
+while($tmp = $result->fetch_assoc()){
+    $feed[] = $tmp;
+}
+if(!$name)
     $name = "NOT LOGGED IN";
-}
 
 ?>
 <HTML>
@@ -45,9 +40,9 @@ else{
             function cardClick(target){
                 let cards = document.getElementsByClassName("card");
                 const state = target.getAttribute('focused') === 'true';
-                
+
                 target.setAttribute('focused', String(!state));
-                
+
                 for(let i = 0; i < cards.length; i++){
                     if(cards[i] != target){
                         let disp = !state ? 'none' : 'flex';
@@ -55,13 +50,13 @@ else{
                         console.log("Not target! this: "+cards[i]);   
                     }
                 }
-             console.log("Clicked! target: "+target);   
+                console.log("Clicked! target: "+target);   
             }
         </script>
     </head>
     <body>
         <div id="header">
-            <?php echo $uname; ?>'s Wisdom
+            <h1><?php echo $uname; ?>'s Wisdom</h1>
         </div>
         <div id="toolbar">
             <p><?php echo "Logged in as $name";?></p>

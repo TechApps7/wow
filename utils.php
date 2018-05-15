@@ -17,5 +17,8 @@ function getFromGet($param){
     else
         return "";
 }
+function errPage($err){
+    header("Location: /err.php?msg=$err");
+}
 ?>
 

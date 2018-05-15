@@ -10,7 +10,8 @@ foreach($fields as $k => $v){
 if($filledOut){
     $db = new mysqli("localhost", "mason", "lKJ87s75GoqoPrNd", "west");
     if($db->connect_errno){
-        echo "<h1>Could not connect</h1>";
+        $err = $db->error;
+        header("Location: err.php?msg=$err");
     }
     else{
         $sql = "SELECT Password, UserId FROM user WHERE UserName=?";

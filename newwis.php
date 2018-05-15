@@ -17,9 +17,8 @@ if(!$name){
         </div>
         <div id="toolbar">
             <p><?php echo "Logged in as $name";?></p>
+            <a href="home.php">Home</a>
             <a href="logout.php">Log Out</a>
-            <a href="newwis.php">Write Some Wisdom</a>
-
         </div>
         <div id="container">
             <div class="centered">

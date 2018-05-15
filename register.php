@@ -75,7 +75,7 @@ foreach($fields as $k => $v){
                     </div>
                     <div>
                         <label for="user">User Name:</label>
-                        <input id="user" type="text" name="uname" value="<?php echo $fields['uname']; ?>">
+                        <input id="user" maxlength="12" type="text" name="uname" value="<?php echo $fields['uname']; ?>">
                     </div>
                     <div>
                         <label for="pass">Password:</label>
@@ -88,6 +88,9 @@ foreach($fields as $k => $v){
                     </div>
                     <div>
                         <input type="submit">
+                    </div>
+                    <div class="err">
+                        <?php echo getFromGet('err'); ?>
                     </div>
                     <div class="centered">
                         Already have an accout? <a href="login.php">Log in</a>

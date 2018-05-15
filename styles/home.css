@@ -8,9 +8,14 @@
 }
 .card{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+
     background-color: rosybrown;
     width: 66vw;
     margin: 12px;
+}
+.card a{
+    display: block;
+}
+.card p{
+    align-self: center;
 }

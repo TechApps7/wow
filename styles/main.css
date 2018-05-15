@@ -1,4 +1,6 @@
 body{
+    display: flex;
+    flex-direction: column;
     background-color: floralwhite;
     width: 100%;
 }
@@ -19,7 +21,6 @@ body{
 
 }
 #toolbar{
-    position: relative;
     height: 25px;
     display: flex;
     flex-direction: row;
@@ -37,6 +38,7 @@ body{
     text-align: center;
     height: 150px;
     background-color: gainsboro;
+    align-self:baseline;
 }
 
 .centered{
