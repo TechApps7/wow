@@ -61,6 +61,7 @@ else{
             <p><?php echo "Logged in as $name";?></p>
             <a href="newwis.php">Write Some Wisdom</a>
             <a href="follow.php">Follow a User</a>
+            <a href="view-follows.php">View Follows</a>
             <a href="logout.php">Log Out</a>
         </div>
         <div id="container">
@@ -86,6 +87,7 @@ else{
                     foreach($feed as $card){
                         echo "<div title='Click to view only this Wisdom' focused='false' onclick='cardClick(this)' class='card'>";
                         echo "<a href='view-user.php?uname=${card['Name']}'>${card['Name']}:</a>";
+                        echo "<br>";
                         echo "<p>${card['Text']}</p>";
                         echo "</div>";
                     }

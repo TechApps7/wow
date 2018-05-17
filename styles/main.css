@@ -3,6 +3,7 @@ body{
     flex-direction: column;
     background-color: floralwhite;
     width: 100%;
+    min-height: 100%;
 }
 .err{
     color: red;

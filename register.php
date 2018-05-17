@@ -33,12 +33,15 @@ foreach($fields as $k => $v){
                 let pass = document.getElementById("pass");
                 let confirm = document.getElementById("confirm");
                 let msg = document.getElementById("passErr");
-
+                let button = document.getElementById("submit");
+                
                 if(pass.value != confirm.value){
                     msg.innerHTML = "Please make sure passwords match";
+                    button.disabled = true;
                 }
                 else{
                     msg.innerHTML = "";
+                    button.disabled = false;
                 }
             }
         </script>
@@ -74,7 +77,7 @@ foreach($fields as $k => $v){
                         <input id="email" type="email" name="email" value="<?php echo $fields['email']; ?>">
                     </div>
                     <div>
-                        <label for="user">User Name:</label>
+                        <label for="user">Username:</label>
                         <input id="user" maxlength="12" type="text" name="uname" value="<?php echo $fields['uname']; ?>">
                     </div>
                     <div>
@@ -87,7 +90,7 @@ foreach($fields as $k => $v){
                         <div id="passErr" class="err"></div>
                     </div>
                     <div>
-                        <input type="submit">
+                        <input type="submit" id="submit">
                     </div>
                     <div class="err">
                         <?php echo getFromGet('err'); ?>

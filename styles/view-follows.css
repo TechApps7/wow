@@ -8,14 +8,16 @@
 }
 .card{
     display: flex;
-    
+    flex-direction: row;
+    flex-grow: 1;
+    align-content: space-around;
     background-color: rosybrown;
     width: 66vw;
     margin: 12px;
 }
-.card a{
-    display: block;
+.card .name{
+    align-self:flex-start;
 }
-.card p{
-    align-self: center;
+.card .uf{
+    align-self:flex-end;
 }

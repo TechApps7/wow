@@ -20,7 +20,7 @@ if(isset($_SESSION['uid'])){
             <div class="centered">
                 <form id="logform" action="dologin.php" method="post">
                     <div>
-                        <label for="uname">User Name: </label>
+                        <label for="uname">Username: </label>
                         <input type="text" name="uname" id="uname">
                     </div>
                     <div>

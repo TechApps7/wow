@@ -11,7 +11,7 @@ if($uid = getFromSession('uid')){
     else{
         $sql = "SELECT u.UserName AS uname FROM user AS u, follow AS f WHERE f.Follower=${uid} AND f.Followed=u.UserId";
         $result = $db->query($sql);
-        
+
         $feed = array();
         while($tmp = $result->fetch_assoc()){
             $feed[] = $tmp;
@@ -23,6 +23,7 @@ if($uid = getFromSession('uid')){
     <head>
         <title><?php echo $name; ?>'s Follows</title>
         <link rel="stylesheet" type="text/css" href="styles/main.css">
+        <link rel="stylesheet" type="text/css" href="styles/view-follows.css">
     </head>
     <body>
         <div id="header">
@@ -36,11 +37,23 @@ if($uid = getFromSession('uid')){
             <a href="logout.php">Log Out</a>
         </div>
         <div id="container">
-            <?php
-            foreach($feed as $user){
-                echo "<a href='view-user.php?uname=${user['uname']}'>${user['uname']}</a>";
-            }
-            ?>
+            <div class="centered">
+                <div id="feed">
+                    <?php
+                    foreach($feed as $user){
+                        if(getFromSession('uname') != $user['uname']){
+                            echo "<div class='card'>";
+                            echo "<a class='name' href='view-user.php?uname=${user['uname']}'>${user['uname']}</a>";
+                            echo "<a class='uf' href='about:blank'>Unfollow</a>";
+                            echo "</div>";
+                            echo htmlspecialchars("<fsgdfsgdfsgfdsgfdsg><br><fdsafdsafsdafdsafds>");
+                        }
+
+                    }
+                    ?>
+                </div>
+            </div>
+
         </div>
         <div id="footer">
         </div>

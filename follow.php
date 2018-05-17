@@ -9,14 +9,14 @@ $name = getFromSession('uname');
         <link rel="stylesheet" type="text/css" href="styles/main.css">
     </head>
     <body>
-    <div id="header">
+        <div id="header">
             <h1>West of West</h1>
         </div>
         <div id="toolbar">
             <p><?php echo "Logged in as $name";?></p>
-            <a href="logout.php">Log Out</a>
+            <a href="home.php">Home</a>
             <a href="newwis.php">Write Some Wisdom</a>
-
+            <a href="logout.php">Log Out</a>
         </div>
         <div id="container">
             <div class="centered">
