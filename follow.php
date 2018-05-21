@@ -10,6 +10,8 @@ $name = getFromSession('uname');
     </head>
     <body>
         <div id="header">
+            <img src="img/kanye-face.png" id="kleft">
+            <img src="img/kanye-face.png" id="kright">
             <h1>West of West</h1>
         </div>
         <div id="toolbar">

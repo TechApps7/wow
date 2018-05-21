@@ -34,7 +34,7 @@ foreach($fields as $k => $v){
                 let confirm = document.getElementById("confirm");
                 let msg = document.getElementById("passErr");
                 let button = document.getElementById("submit");
-                
+
                 if(pass.value != confirm.value){
                     msg.innerHTML = "Please make sure passwords match";
                     button.disabled = true;
@@ -48,6 +48,8 @@ foreach($fields as $k => $v){
     </head>
     <body>
         <div id="header">
+            <img src="img/kanye-face.png" id="kleft">
+            <img src="img/kanye-face.png" id="kright">
             <h1>Register Your Account</h1>
         </div>
         <div id="container">

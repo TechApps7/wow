@@ -56,6 +56,8 @@ if(!$name)
     </head>
     <body>
         <div id="header">
+            <img src="img/kanye-face.png" id="kleft">
+            <img src="img/kanye-face.png" id="kright">
             <h1><?php echo $uname; ?>'s Wisdom</h1>
         </div>
         <div id="toolbar">

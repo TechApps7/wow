@@ -13,6 +13,8 @@ if(!$name){
     </head>
     <body>
         <div id="header">
+            <img src="img/kanye-face.png" id="kleft">
+            <img src="img/kanye-face.png" id="kright">
             <h1>Write Some Wisdom</h1>
         </div>
         <div id="toolbar">
@@ -26,7 +28,7 @@ if(!$name){
                     <textarea maxlength="255" rows="10" cols="30" placeholder="Write your wisdom here..." name="wisdom"></textarea>
                 </form>
             </div>
-            
+
             <div class="centered">
                 <button id="submit" form="wisdom-form" value="Submit">Submit</button>
             </div>

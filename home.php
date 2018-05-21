@@ -14,12 +14,12 @@ if($uid = getFromSession('uid')){
     $stmt->bind_param("i", $offset);
     $stmt->execute();
     $result = $stmt->get_result();
-    
+
     if(!$result){
         $err = $db->error;
         header("Location: /err.php?msg=$err");
     }
-    
+
     $feed = array();
     while($tmp = $result->fetch_assoc()){
         $feed[] = $tmp;
@@ -39,9 +39,9 @@ else{
             function cardClick(target){
                 let cards = document.getElementsByClassName("card");
                 const state = target.getAttribute('focused') === 'true';
-                
+
                 target.setAttribute('focused', String(!state));
-                
+
                 for(let i = 0; i < cards.length; i++){
                     if(cards[i] != target){
                         let disp = !state ? 'none' : 'flex';
@@ -49,12 +49,14 @@ else{
                         console.log("Not target! this: "+cards[i]);   
                     }
                 }
-             console.log("Clicked! target: "+target);   
+                console.log("Clicked! target: "+target);   
             }
         </script>
     </head>
     <body>
         <div id="header">
+            <img src="img/kanye-face.png" id="kleft">
+            <img src="img/kanye-face.png" id="kright">
             <h1>West of West</h1>
         </div>
         <div id="toolbar">
@@ -66,22 +68,24 @@ else{
         </div>
         <div id="container">
             <div class="centered">
-                <div id="feed">
+
+                <img src="img/profile.png" id="ksays">
+                <span id="feed">
                     <div>
                         <?php
                         $o = $offset - 20;
                         if($offset >= 20)
                             echo " <a href='home.php?offset=${o}'><-</a>";
-                        
+
                         $o = $offset + 20;
                         if(count($feed) == 20)
                             echo " <a href='home.php?offset=${o}'>-></a>";
                         ?>
-                       
+
                         <h3>Your feed:  </h3>
-                        
-                        
-                        
+
+
+
                     </div>
                     <?php
                     foreach($feed as $card){
@@ -92,8 +96,10 @@ else{
                         echo "</div>";
                     }
                     ?>
-                </div>
+                </span>
             </div>
+
+
         </div>
 
         <div id="footer">

@@ -27,6 +27,8 @@ if($uid = getFromSession('uid')){
     </head>
     <body>
         <div id="header">
+            <img src="img/kanye-face.png" id="kleft">
+            <img src="img/kanye-face.png" id="kright">
             <h1><?php echo $name; ?>'s Follows</h1>
         </div>
         <div id="toolbar">
@@ -46,7 +48,6 @@ if($uid = getFromSession('uid')){
                             echo "<a class='name' href='view-user.php?uname=${user['uname']}'>${user['uname']}</a>";
                             echo "<a class='uf' href='about:blank'>Unfollow</a>";
                             echo "</div>";
-                            echo htmlspecialchars("<fsgdfsgdfsgfdsgfdsg><br><fdsafdsafsdafdsafds>");
                         }
 
                     }

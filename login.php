@@ -13,7 +13,9 @@ if(isset($_SESSION['uid'])){
     </head>
     <body>
         <div id="header">
+            <img src="img/kanye-face.png" id="kleft">
             <h1>Log In</h1>
+            <img src="img/kanye-face.png" id="kright">  
         </div>
 
         <div id="container">

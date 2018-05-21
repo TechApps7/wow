@@ -1,16 +1,13 @@
 #feed{
-    border-color: #220099;
-    border-width: 2px;
-    border-style: solid;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 .card{
     display: flex;
-    
     background-color: rosybrown;
-    width: 66vw;
+    width: 95%;
     margin: 12px;
 }
 .card a{
@@ -18,4 +15,9 @@
 }
 .card p{
     align-self: center;
+}
+
+#ksays{
+    height:300px;
+
 }
